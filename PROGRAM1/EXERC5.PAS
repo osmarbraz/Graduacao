@@ -1,0 +1,13 @@
+PROGRAM EXERCICIO_5;
+USES CRT;
+VAR
+   LETRA,TECLA    : CHAR;
+   X              : BYTE;
+BEGIN
+     CLRSCR;
+     WRITELN ('DIGITE UMA LETRA');
+     LETRA := READKEY;
+     X := ORD (LETRA);
+     WRITELN ('O SEU CODIGO ASCII E : ',X);
+     TECLA := READKEY
+END.

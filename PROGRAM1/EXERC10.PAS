@@ -1,0 +1,17 @@
+PROGRAM EXERCICIO_10;
+USES CRT;
+VAR
+   LETRA      : CHAR;
+   X          : INTEGER;
+   TECLA      : CHAR;
+BEGIN
+     CLRSCR;
+     WRITELN ('DIGITE UMA LETRA');
+     READLN (LETRA);
+     X := ORD(LETRA);
+     CASE X OF
+     65 .. 90  : WRITELN (' E UMA LETRA MAIUSCULA');
+     97 .. 122 : WRITELN (' E UMA LETRA MINUSCULA');
+     END;
+     TECLA := READKEY
+END.

@@ -1,0 +1,150 @@
+(***************************************************************************)
+(**     Trabalho de Estrutura de dados I solicitado pela professora       **)
+(**     Patricia Milaneze                                                 **)
+(**     Alunos                                                            **)
+(**             Lusicler de Souza Molon  - 3920                           **)
+(**             Angelica Kemper          - 7016                           **)
+(**             Siliane Dagostin         - 6709                           **)
+(**             Ricardo Cachoeira        - 10386                          **)
+(**                                                                       **)
+(***************************************************************************)
+
+UNIT UNITKUGA;
+INTERFACE
+TYPE
+   APONTA_PILHA = ^PILHA;
+   PILHA = RECORD
+                 DADO     :  STRING;
+                 SEGUINTE : APONTA_PILHA;
+           END;
+    APONTA_FILA = ^FILA;
+    FILA    =  RECORD
+                      DADO       : STRING;
+                      SEGUINTE   : APONTA_FILA;
+                END;
+    PONTAS   =  RECORD
+                      COMECO  : APONTA_FILA;
+                      TERMINO : APONTA_FILA;
+                END;
+
+PROCEDURE INICIAR_PILHA (VAR PILHA: APONTA_PILHA);
+PROCEDURE EMPILHAMENTO (VAR PILHA : APONTA_PILHA; VAR DADO : STRING);
+PROCEDURE DESEMPILHAMENTO (VAR PILHA : APONTA_PILHA; VAR DADO: STRING; VAR VAZIO :BOOLEAN);
+PROCEDURE CONSULTA_PILHA (VAR PILHA : APONTA_PILHA; VAR DADO: STRING);
+
+
+PROCEDURE INICIAR_FILA(VAR FILA : PONTAS);
+PROCEDURE CONSULTA_FILA ( VAR FILA: PONTAS; VAR DADO:STRING);
+PROCEDURE DESINFILEIRA ( VAR FILA : PONTAS; VAR DADO : STRING;VAR VAZIO:BOOLEAN);
+PROCEDURE ENFILEIRA ( VAR FILA : PONTAS; VAR DADO : STRING);
+
+IMPLEMENTATION
+
+(************** PROCEDURE PARA INICIAR UMA PILHA *********************)
+PROCEDURE INICIAR_PILHA (VAR PILHA: APONTA_PILHA);
+BEGIN
+     PILHA := NIL;
+END;
+
+(********* PROCEDURE PARA COLOCAR ELEMENTO NO TOPO DA PILHA ************)
+PROCEDURE EMPILHAMENTO (VAR PILHA : APONTA_PILHA; VAR DADO: STRING);
+VAR
+   AUXILIAR : APONTA_PILHA;
+BEGIN
+     NEW(AUXILIAR);
+     AUXILIAR^.DADO     := DADO;
+     AUXILIAR^.SEGUINTE := PILHA;
+     PILHA              := AUXILIAR;
+     AUXILIAR           := NIL;
+END;
+
+(******** PROCEDURE PARA RETIRAR ELEMENTO DO TOPO DA PILHA **********)
+PROCEDURE DESEMPILHAMENTO (VAR PILHA : APONTA_PILHA; VAR DADO: STRING; VAR VAZIO:BOOLEAN);
+VAR
+   AUXILIAR : APONTA_PILHA;
+BEGIN
+     IF (PILHA = NIL) THEN
+       BEGIN
+           VAZIO := TRUE;
+           WRITELN ('PILHA VAZIA');
+       END
+     ELSE
+        BEGIN
+             DADO := PILHA^.DADO;
+             AUXILIAR           := PILHA;
+             PILHA              := PILHA^.SEGUINTE;
+             AUXILIAR^.SEGUINTE := NIL;
+             DISPOSE (AUXILIAR);
+        END;
+END;
+
+(************** PROCEDURE PARA CONSULTAR O TOPO DA PILHA *************)
+PROCEDURE CONSULTA_PILHA (VAR PILHA : APONTA_PILHA; VAR DADO: STRING);
+VAR
+   VAZIO : BOOLEAN;
+BEGIN
+     IF PILHA = NIL THEN
+       BEGIN
+           VAZIO:=TRUE;
+           WRITELN('PILHA ESTA VAZIA!!!');
+       END
+     ELSE
+        DADO := PILHA^.DADO;
+END;
+
+
+(***************** PROCEDURE INICIA FILA ***************************)
+PROCEDURE INICIAR_FILA(VAR FILA : PONTAS);
+BEGIN
+     FILA.COMECO  := NIL;
+     FILA.TERMINO := NIL;
+END;
+
+(************* PROCEDURE INSERE ELEMENTO NA FILA ****************)
+PROCEDURE ENFILEIRA (VAR FILA : PONTAS;VAR DADO : STRING);
+VAR
+   AUXILIAR : APONTA_FILA;
+BEGIN
+     NEW(AUXILIAR);
+     AUXILIAR^.DADO := DADO;
+     AUXILIAR^.SEGUINTE := NIL;
+     IF FILA.TERMINO <> NIL THEN
+        FILA.TERMINO^.SEGUINTE := AUXILIAR;
+     FILA.TERMINO := AUXILIAR;
+     IF FILA.COMECO = NIL THEN
+        FILA.COMECO := AUXILIAR;
+     AUXILIAR := NIL;
+END;
+
+(************ PROCEDURE RETIRA ELEMENTO DA FILA *************************)
+PROCEDURE DESINFILEIRA ( VAR FILA : PONTAS;VAR DADO : STRING;VAR VAZIO:BOOLEAN);
+VAR
+   AUXILIAR : APONTA_FILA;
+BEGIN
+     IF FILA.COMECO = NIL THEN
+        BEGIN
+             WRITELN('FILA ESTA VAZIA!!!');
+             VAZIO := TRUE;
+        END
+     ELSE
+         BEGIN
+              AUXILIAR := FILA.COMECO;
+              DADO := AUXILIAR^.DADO;
+              FILA.COMECO := FILA.COMECO^.SEGUINTE;
+              AUXILIAR^.SEGUINTE := NIL;
+              DISPOSE (AUXILIAR);
+              IF FILA.COMECO = NIL THEN
+                 FILA.TERMINO := NIL ;
+         END;
+END;
+
+(***************  PROCEDURE CONSULTA FILA **********************)
+PROCEDURE CONSULTA_FILA ( VAR FILA: PONTAS; VAR DADO:STRING);
+BEGIN
+     IF FILA.COMECO = NIL THEN
+        WRITELN('FILA ESTA FAZIA!!!')
+     ELSE
+         DADO := FILA.COMECO^.DADO;
+END;
+
+END.

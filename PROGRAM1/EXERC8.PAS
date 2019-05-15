@@ -1,0 +1,15 @@
+PROGRAM EXERCICIO_8;
+USES CRT;
+VAR
+   LETRA,TECLA    : CHAR;
+   X,Y            : INTEGER;
+BEGIN
+     CLRSCR;
+     WRITELN ('DIGITE UMA LETRA MAIUSCULA');
+     READLN (LETRA);
+     X := ORD (LETRA);
+     Y := X + 32;
+     WRITELN ('MINUSCULA : ',CHAR(Y));
+     TECLA := READKEY
+END.
+

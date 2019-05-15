@@ -1,0 +1,19 @@
+PROGRAM EXERCICIO_2 ;
+USES CRT;
+VAR
+  F,C   :REAL;
+  TECLA : CHAR;
+BEGIN
+    CLRSCR;
+    WINDOW (1,1,70,20);
+    WRITE ('DIGITE EM GRAUS FAHRENHEIT');
+    GOTOXY (45,1);
+    WRITELN ('GRAUS CELSIUS');
+    GOTOXY (12,3);
+    READLN (F);
+    C := (5/9)*(F-32);
+    GOTOXY (47,3);
+    WRITELN ('C = ',C:0:2);
+    TECLA := READKEY;
+END.
+
