@@ -1,14 +1,3 @@
-(***************************************************************************)
-(**     Trabalho de Estrutura de dados I solicitado pela professora       **)
-(**     Patricia Milaneze                                                 **)
-(**     Alunos                                                            **)
-(**             Lusicler de Souza Molon  - 3920                           **)
-(**             Angelica Kemper          - 7016                           **)
-(**             Siliane Dagostin         - 6709                           **)
-(**             Ricardo Cachoeira        - 10386                          **)
-(**                                                                       **)
-(***************************************************************************)
-
 UNIT UNITKUGA;
 INTERFACE
 TYPE

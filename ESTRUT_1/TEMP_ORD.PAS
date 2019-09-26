@@ -1,14 +1,3 @@
-(***************************************************************************)
-(**     Trabalho de Estrutura de dados I solicitado pela professora       **)
-(**     Patricia Milaneze                                                 **)
-(**     Alunos                                                            **)
-(**             Lusicler de Souza Molon  - 3920                           **)
-(**             Angelica Kemper          - 7016                           **)
-(**             Siliane Dagostin         - 6709                           **)
-(**             Ricardo Cachoeira        - 10386                          **)
-(**                                                                       **)
-(***************************************************************************)
-
 PROGRAM METODOS_DE_ORDENACAO;
 USES GRAPH, CRT, DOS;
 
@@ -96,11 +85,9 @@ BEGIN
                RECTANGLE (103, 178, 537, 422);
                OUTTEXTXY (130, 200, '  >>>>  TRABALHO DE ESTRUTURA DE DADOS I <<<<');
                OUTTEXTXY (130, 220, '  Solicitado pelo Professora Patricia Milaneze');
-               LINE (360, 230, 505, 230);
-               OUTTEXTXY (130, 270, '          Angelica Kemper - CCP 7016 ');
+               LINE (360, 230, 505, 230);               
                OUTTEXTXY (130, 300, '       Lusicler de Souza Molon - CCP 3920 ');
-               OUTTEXTXY (130, 330, '        Ricardo Cachoeira - CCP 10386 ');
-               OUTTEXTXY (130, 360, '          Siliane Dagostin - CCP 6709 ');
+               OUTTEXTXY (130, 330, '   Osmar de Oliveira Braz Junior - CCP 8573 ');
                RECTANGLE (135, 400, 505, 415);
                OUTTEXTXY (130, 405, '  Tecle ESC para voltar para o menu principal');
                T := READKEY;

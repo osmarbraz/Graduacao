@@ -279,9 +279,9 @@ begin
      Escreva(2,1,'Universidade do Sul de Santa Catarina - UNISUL');
      Escreva(2,2,'Trabalho de Inteligˆncia Artificial');
      Escreva(2,3,'Professora: Solange Teresinha Sari');
-     Escreva(2,9,'Acadˆmicas:');
+     Escreva(2,9,'Academicos:');
      Escreva(2,10,'      Lusicler de Souza Molon');
-     Escreva(2,11,'      Rosilene Dorneles');
+     Escreva(2,11,'      Osmar de Oliveira Braz Junior');
 
      windows(22,13,52,15);
      Escreva(1,1,'     Busca do Menor Custo');
@@ -298,9 +298,9 @@ Begin
      Window (1,1,80,25);
      Clrscr;
      windows (15,8,60,16);
-     Escreva (5,2,'Acadˆmicas');
+     Escreva (5,2,'Academicas');
      Escreva (5,4,'      Lusicler de Souza Molon');
-     Escreva (5,5,'      Rosilene Dorneles');
+     Escreva (5,5,'      Osmar de Oliveira Braz Junior ');
      beep (1000,100);
      Delay (1000);
      window (1,1,80,25);
